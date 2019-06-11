@@ -5,7 +5,7 @@ import styles from "./app.styles";
 const App = () => (
     <div className={styles.app}>
         <header className={styles.appHeader}>
-            <h3>Week Planner</h3>
+            <h3>Hack Tactics</h3>
         </header>
         <div className={styles.appBody}>
             <DayView />
