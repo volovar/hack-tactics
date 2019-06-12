@@ -1,5 +1,5 @@
 {
-    "name": "hack-tactics",
+    "name": "tactics-coder",
     "version": "0.1.0",
     "description": "An app to plan your tasks",
     "main": "src/index.js",

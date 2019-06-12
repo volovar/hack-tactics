@@ -1,4 +1,4 @@
-# Hack Tactics
+# Tactics Coder
 An app to plan your tasks (coding or otherwise) for the week. Become a master tactician and always know what to do next.
 
 ## Setup
