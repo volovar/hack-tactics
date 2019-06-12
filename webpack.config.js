@@ -29,7 +29,8 @@ module.exports = (env = {}) => {
         plugins,
         resolve: {
             alias: {
-                components: resolve(__dirname, "src/components")
+                components: resolve(__dirname, "src/components"),
+                contexts: resolve(__dirname, "src/contexts")
             }
         },
         devServer: {
