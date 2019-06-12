@@ -4,11 +4,11 @@ An app to plan your tasks (coding or otherwise) for the week. Become a master ta
 ## Setup
 1. Clone the repo
     ```bash
-    git clone https://github.com/volovar/hack-tactics.git
+    git clone https://github.com/volovar/tactics-coder.git
     ```
 1. Move into the directory
     ```bash
-    cd hack-tactics
+    cd tactics-coder
     ```
 1. Install packages
     ```bash
