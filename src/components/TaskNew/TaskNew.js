@@ -42,7 +42,6 @@ const TaskNew = ({ cancelAddNew }) => {
     const [hasTime, setHasTime] = useState(false);
 
     const handleClick = () => {
-        console.log(currentDay);
         dispatch({ type: "add", task: { ...task, day: currentDay } });
     };
 
