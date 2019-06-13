@@ -41,7 +41,7 @@ const TaskView = () => {
                 </button>
             </div>
             <TaskList addNew={addNew} cancelAddNew={cancelAddNew} />
-            {!addNew && <TaskNew cancelAddNew={cancelAddNew} />}
+            {addNew && <TaskNew cancelAddNew={cancelAddNew} />}
         </div>
     );
 };
