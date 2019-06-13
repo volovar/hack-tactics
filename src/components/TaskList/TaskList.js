@@ -1,19 +1,19 @@
 import React from "react";
 import Task from "components/Task/Task";
-import TaskContext from "contexts/TaskContext";
+import { useTaskState } from "contexts/TaskProvider";
+import { useDayState } from "contexts/DayProvider";
 
-const TaskList = () => (
-    <TaskContext.Consumer>
-        {({ currentDay, tasks }) =>
-            tasks[currentDay] ? (
-                <ul>
-                    {tasks[currentDay].map((task, i) => (
-                        <Task key={`task-${i}`} task={task} />
-                    ))}
-                </ul>
-            ) : null
-        }
-    </TaskContext.Consumer>
-);
+const TaskList = () => {
+    const { tasks } = useTaskState();
+    const { currentDay } = useDayState();
+
+    return tasks[currentDay] ? (
+        <ul>
+            {tasks[currentDay].map((task, i) => (
+                <Task key={`task-${i}`} task={task} />
+            ))}
+        </ul>
+    ) : null;
+};
 
 export default TaskList;

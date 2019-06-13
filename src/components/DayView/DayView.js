@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Day from "components/Day/Day";
 import TaskView from "components/TaskView/TaskView";
-import TaskContext from "contexts/TaskContext";
+import { useDayState } from "contexts/DayProvider";
 import styles from "./day-view.styles";
 
 const days = [
@@ -14,38 +14,35 @@ const days = [
     { abbr: "Sat", name: "Saturday" }
 ];
 
-const DayView = () => (
-    <TaskContext.Consumer>
-        {({ currentDay }) => {
-            const activeDay = days[currentDay];
+const DayView = () => {
+    const { currentDay } = useDayState();
+    const activeDay = days[currentDay];
 
-            return (
-                <div className={styles.dayView}>
-                    <ul className={styles.dayList}>
-                        {days.map((day, i) => (
-                            <Day
-                                abbr={day.abbr}
-                                dayInt={i}
-                                name={day.name}
-                                key={day.abbr}
-                                isActive={day.name === activeDay.name}
-                            />
-                        ))}
-                    </ul>
-                    {activeDay && (
-                        <div className={styles.dayDetails}>
-                            <h1>{activeDay.name}</h1>
-                            <div>
-                                Time Breakdown
-                                <div>-------</div>
-                            </div>
-                            <TaskView />
-                        </div>
-                    )}
+    return (
+        <div className={styles.dayView}>
+            <ul className={styles.dayList}>
+                {days.map((day, i) => (
+                    <Day
+                        abbr={day.abbr}
+                        dayInt={i}
+                        name={day.name}
+                        key={day.abbr}
+                        isActive={day.name === activeDay.name}
+                    />
+                ))}
+            </ul>
+            {activeDay && (
+                <div className={styles.dayDetails}>
+                    <h1>{activeDay.name}</h1>
+                    <div>
+                        Time Breakdown
+                        <div>-------</div>
+                    </div>
+                    <TaskView />
                 </div>
-            );
-        }}
-    </TaskContext.Consumer>
-);
+            )}
+        </div>
+    );
+};
 
 export default DayView;
