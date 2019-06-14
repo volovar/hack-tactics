@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useTaskDispatch } from "contexts/TaskProvider";
-import { useDayState } from "contexts/DayProvider";
+import { useTaskDispatch } from "contexts/TaskContext";
+import { useDayState } from "contexts/DayContext";
 import { css } from "emotion";
 
 const taskNewStyle = css`
@@ -30,19 +30,25 @@ const inputLabelStyle = css`
     display: block;
 `;
 
-const TaskNew = ({ cancelAddNew }) => {
+const TaskEditor = ({ handleCancel, editTask = null }) => {
     const dispatch = useTaskDispatch();
     const { currentDay } = useDayState();
-    const [task, setTask] = useState({
-        name: "New Task",
-        recurring: false,
-        complete: false,
-        time: null
-    });
+    const [task, setTask] = useState(
+        editTask || {
+            name: "New Task",
+            recurring: false,
+            complete: false,
+            time: null
+        }
+    );
     const [hasTime, setHasTime] = useState(false);
 
-    const handleClick = () => {
-        dispatch({ type: "add", task: { ...task, day: currentDay } });
+    const handleAddClick = () => {
+        dispatch({ type: "CREATE", task: { ...task, day: currentDay } });
+    };
+
+    const handleUpdateClick = () => {
+        dispatch({ type: "UPDATE", task: { ...task } });
     };
 
     const handleNameChange = e => {
@@ -107,11 +113,15 @@ const TaskNew = ({ cancelAddNew }) => {
             )}
 
             <div>
-                <button onClick={handleClick}>Add</button>
-                <button onClick={cancelAddNew}>Cancel</button>
+                {editTask ? (
+                    <button onClick={handleUpdateClick}>Update</button>
+                ) : (
+                    <button onClick={handleAddClick}>Add</button>
+                )}
+                <button onClick={handleCancel}>Cancel</button>
             </div>
         </div>
     );
 };
 
-export default TaskNew;
+export default TaskEditor;

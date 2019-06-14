@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TaskList from "components/TaskList/TaskList";
-import TaskNew from "components/TaskNew/TaskNew";
+import TaskEditor from "components/TaskEditor/TaskEditor";
 import { css } from "emotion";
 
 const buttonStyle = css`
@@ -40,8 +40,8 @@ const TaskView = () => {
                     +
                 </button>
             </div>
-            <TaskList addNew={addNew} cancelAddNew={cancelAddNew} />
-            {addNew && <TaskNew cancelAddNew={cancelAddNew} />}
+            <TaskList />
+            {addNew && <TaskEditor handleCancel={cancelAddNew} />}
         </div>
     );
 };

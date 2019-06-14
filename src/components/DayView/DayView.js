@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Day from "components/Day/Day";
 import TaskView from "components/TaskView/TaskView";
-import { useDayState } from "contexts/DayProvider";
+import { useDayState } from "contexts/DayContext";
 import styles from "./day-view.styles";
 
 const days = [

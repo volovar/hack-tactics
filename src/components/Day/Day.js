@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { useDayDispatch } from "contexts/DayProvider";
+import { useDayDispatch } from "contexts/DayContext";
 
 const Day = ({ abbr, dayInt, isActive, name }) => {
     const dispatch = useDayDispatch();

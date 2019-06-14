@@ -1,8 +1,8 @@
 import React from "react";
 import DayView from "components/DayView/DayView";
 import styles from "./app.styles";
-import { TaskProvider } from "contexts/TaskProvider";
-import { DayProvider } from "contexts/DayProvider";
+import { TaskProvider } from "contexts/TaskContext";
+import { DayProvider } from "contexts/DayContext";
 
 const App = () => (
     <TaskProvider>
