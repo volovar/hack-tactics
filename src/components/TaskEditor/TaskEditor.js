@@ -35,7 +35,7 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
     const { currentDay } = useDayState();
     const [task, setTask] = useState(
         editTask || {
-            name: "New Task",
+            name: "",
             recurring: false,
             complete: false,
             time: null
@@ -45,6 +45,7 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
 
     const handleAddClick = () => {
         dispatch({ type: "CREATE", task: { ...task, day: currentDay } });
+        setTask({ name: "", recurring: false, complete: false, time: null });
     };
 
     const handleUpdateClick = () => {
@@ -70,6 +71,7 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
                     display: block;
                     margin-bottom: 0.7em;
                 `}
+                placeholder="Task Name"
                 onChange={handleNameChange}
                 value={task.name}
             />
