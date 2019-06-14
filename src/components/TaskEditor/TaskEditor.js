@@ -46,6 +46,7 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
     const handleAddClick = () => {
         dispatch({ type: "CREATE", task: { ...task, day: currentDay } });
         setTask({ name: "", recurring: false, complete: false, time: null });
+        setHasTime(false);
     };
 
     const handleUpdateClick = () => {
@@ -78,12 +79,20 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
 
             <label className={flexLabelStyle}>
                 <span className={inputLabelStyle}>Recurring:</span>
-                <input onChange={handleRecurringChange} type="checkbox" />
+                <input
+                    onChange={handleRecurringChange}
+                    type="checkbox"
+                    checked={task.recurring}
+                />
             </label>
 
             <label className={flexLabelStyle}>
                 <span className={inputLabelStyle}>Time Limit:</span>
-                <input onChange={handleTimeToggle} type="checkbox" />
+                <input
+                    onChange={handleTimeToggle}
+                    type="checkbox"
+                    checked={hasTime}
+                />
             </label>
 
             {hasTime && (
