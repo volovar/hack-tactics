@@ -25,8 +25,8 @@ const taskReducer = (state, action) => {
     switch (action.type) {
         case "CREATE": {
             const { tasks } = state;
-            idCount++;
             tasks.push({ ...action.task, _id: idCount });
+            idCount++;
 
             window.localStorage.setItem("tasks", JSON.stringify(tasks));
             return { tasks };
@@ -37,8 +37,9 @@ const taskReducer = (state, action) => {
                 task => task._id === action.task._id
             );
 
+            console.log(taskIndex);
             const newTasks = [...tasks];
-            newTasks.splice(tasks.indexOf(taskIndex), 1, action.task);
+            newTasks.splice(taskIndex, 1, action.task);
 
             window.localStorage.setItem("tasks", JSON.stringify(newTasks));
             return { tasks: newTasks };
@@ -46,6 +47,7 @@ const taskReducer = (state, action) => {
         case "DELETE": {
             const { tasks } = state;
             const newTasks = tasks.filter(task => task._id !== action.task._id);
+            idCount--;
 
             window.localStorage.setItem("tasks", JSON.stringify(newTasks));
             return { tasks: newTasks };
