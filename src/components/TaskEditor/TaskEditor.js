@@ -43,13 +43,13 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
     );
     const [hasTime, setHasTime] = useState(false);
 
-    const handleAddClick = () => {
+    const handleAdd = () => {
         dispatch({ type: "CREATE", task: { ...task, day: currentDay } });
         setTask({ name: "", recurring: false, complete: false, time: null });
         setHasTime(false);
     };
 
-    const handleUpdateClick = () => {
+    const handleUpdate = () => {
         dispatch({ type: "UPDATE", task: { ...task } });
     };
 
@@ -65,8 +65,13 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
         setHasTime(e.target.checked);
     };
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        editTask ? handleUpdate() : handleAdd();
+    };
+
     return (
-        <div className={taskNewStyle}>
+        <form className={taskNewStyle} onSubmit={handleSubmit}>
             <input
                 className={css`
                     display: block;
@@ -95,7 +100,7 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
                 />
             </label>
 
-            {hasTime && (
+            {hasTime ? (
                 <div
                     className={css`
                         margin-bottom: 0.7em;
@@ -121,17 +126,19 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
                         <input type="number" />
                     </label>
                 </div>
-            )}
+            ) : null}
 
             <div>
                 {editTask ? (
-                    <button onClick={handleUpdateClick}>Update</button>
+                    <button type="submit">Update</button>
                 ) : (
-                    <button onClick={handleAddClick}>Add</button>
+                    <button type="submit">Add</button>
                 )}
-                <button onClick={handleCancel}>Cancel</button>
+                <button type="button" onClick={handleCancel}>
+                    Cancel
+                </button>
             </div>
-        </div>
+        </form>
     );
 };
 

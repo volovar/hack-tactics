@@ -7,10 +7,6 @@ const Task = ({ task }) => {
     const dispatch = useTaskDispatch();
     const [isEditing, setIsEditing] = useState(false);
 
-    const handleClick = () => {
-        setIsEditing(true);
-    };
-
     const handleCancel = () => {
         setIsEditing(false);
     };
@@ -19,14 +15,24 @@ const Task = ({ task }) => {
         dispatch({ type: "DELETE", task });
     };
 
+    const handleEdit = () => {
+        setIsEditing(true);
+    };
+
+    const handleDone = () => {
+        dispatch({ type: "UPDATE", task: { ...task, done: !task.done } });
+    };
+
     return (
         <li>
             {isEditing ? (
                 <TaskEditor handleCancel={handleCancel} editTask={task} />
             ) : (
                 <>
-                    <button>{task.done ? "Re-open" : "Complete"}</button>
-                    <button onClick={handleClick}>Edit</button>
+                    <button onClick={handleDone}>
+                        {task.done ? "Re-open" : "Complete"}
+                    </button>
+                    <button onClick={handleEdit}>Edit</button>
                     <button onClick={handleDelete}>Delete</button>
                     <span
                         className={
