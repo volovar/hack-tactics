@@ -3,22 +3,35 @@ import TaskList from "components/TaskList/TaskList";
 import TaskEditor from "components/TaskEditor/TaskEditor";
 import { css } from "emotion";
 
+const headerStyle = css`
+    margin: 0;
+`;
+
 const buttonStyle = css`
-    background: lightblue;
+    background: #666;
     box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
     font-size: 1em;
-    max-height: 2em;
-    max-width: 2em;
     outline: none;
     padding: 0.5em;
+    transition: background 150ms linear;
 
     &:active {
-        background: blue;
+        background: #333;
+    }
+
+    &:disabled {
+        background: #999;
+        color: #ccc;
+        cursor: not-allowed;
     }
 `;
 
 const taskHeaderStyle = css`
+    align-items: center;
     display: flex;
+    justify-content: space-between;
 `;
 
 const TaskView = () => {
@@ -33,11 +46,22 @@ const TaskView = () => {
     };
 
     return (
-        <div>
+        <div
+            className={css`
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                overflow: auto;
+            `}
+        >
             <div className={taskHeaderStyle}>
-                <h3>Tasks</h3>
-                <button onClick={handleClick} className={buttonStyle}>
-                    +
+                <h3 className={headerStyle}>Tasks</h3>
+                <button
+                    onClick={handleClick}
+                    className={buttonStyle}
+                    disabled={addNew}
+                >
+                    Add +
                 </button>
             </div>
             <TaskList />

@@ -16,7 +16,10 @@ export const dayList = css`
 
 export const dayDetails = css`
     background: #fefefe;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    overflow: auto;
     padding: 0 1em;
 `;
 
