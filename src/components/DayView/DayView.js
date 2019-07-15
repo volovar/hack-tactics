@@ -4,40 +4,30 @@ import TaskView from "components/TaskView/TaskView";
 import { useDayState } from "contexts/DayContext";
 import styles from "./day-view.styles";
 
-const days = [
-    { abbr: "Sun", name: "Sunday" },
-    { abbr: "Mon", name: "Monday" },
-    { abbr: "Tue", name: "Tuesday" },
-    { abbr: "Wed", name: "Wednesday" },
-    { abbr: "Thu", name: "Thursday" },
-    { abbr: "Fri", name: "Friday" },
-    { abbr: "Sat", name: "Saturday" }
-];
-
 const DayView = () => {
-    const { currentDay } = useDayState();
-    const activeDay = days[currentDay];
+    const { currentDay, daysInOrder } = useDayState();
+    const activeDay = daysInOrder[currentDay];
 
     return (
-        <div className={styles.dayView}>
-            <ul className={styles.dayList}>
-                {days.map((day, i) => (
-                    <Day
-                        abbr={day.abbr}
-                        dayInt={i}
-                        name={day.name}
-                        key={day.abbr}
-                        isActive={day.name === activeDay.name}
-                    />
-                ))}
+        <div css={styles.dayView}>
+            <ul css={styles.dayList}>
+                {Object.keys(daysInOrder).map(dayIndex => {
+                    const day = daysInOrder[dayIndex];
+
+                    return (
+                        <Day
+                            abbr={day.abbr}
+                            dayInt={dayIndex}
+                            name={day.name}
+                            key={day.abbr}
+                            isActive={day.name === activeDay.name}
+                        />
+                    );
+                })}
             </ul>
             {activeDay && (
-                <div className={styles.dayDetails}>
+                <div css={styles.dayDetails}>
                     <h1>{activeDay.name}</h1>
-                    <div>
-                        Time Breakdown
-                        <div>-------</div>
-                    </div>
                     <TaskView />
                 </div>
             )}

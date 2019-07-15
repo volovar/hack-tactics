@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import TaskEditor from "components/TaskEditor/TaskEditor";
 import { useTaskDispatch } from "contexts/TaskContext";
-import { css } from "emotion";
+import { css } from "@emotion/core";
 
 const detailStyle = css`
     display: block;
     padding-bottom: 0.4em;
+`;
+
+const buttonStyle = css`
+    background: maroon;
+    border-radius: 3px;
+    color: #fff;
 `;
 
 const Task = ({ task }) => {
@@ -30,7 +36,7 @@ const Task = ({ task }) => {
 
     return (
         <li
-            className={css`
+            css={css`
                 padding-bottom: 1.4em;
             `}
         >
@@ -39,7 +45,7 @@ const Task = ({ task }) => {
             ) : (
                 <>
                     <span
-                        className={
+                        css={
                             task.done
                                 ? css`
                                       ${detailStyle}
@@ -53,8 +59,12 @@ const Task = ({ task }) => {
                     <button onClick={handleDone}>
                         {task.done ? "Re-open" : "Complete"}
                     </button>
-                    <button onClick={handleEdit}>Edit</button>
-                    <button onClick={handleDelete}>Delete</button>
+                    <button css={buttonStyle} onClick={handleEdit}>
+                        Edit
+                    </button>
+                    <button css={buttonStyle} onClick={handleDelete}>
+                        Delete
+                    </button>
                 </>
             )}
         </li>
