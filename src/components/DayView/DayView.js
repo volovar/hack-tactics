@@ -9,8 +9,8 @@ const DayView = () => {
     const activeDay = daysInOrder[currentDay];
 
     return (
-        <div className={styles.dayView}>
-            <ul className={styles.dayList}>
+        <div css={styles.dayView}>
+            <ul css={styles.dayList}>
                 {Object.keys(daysInOrder).map(dayIndex => {
                     const day = daysInOrder[dayIndex];
 
@@ -26,7 +26,7 @@ const DayView = () => {
                 })}
             </ul>
             {activeDay && (
-                <div className={styles.dayDetails}>
+                <div css={styles.dayDetails}>
                     <h1>{activeDay.name}</h1>
                     <TaskView />
                 </div>

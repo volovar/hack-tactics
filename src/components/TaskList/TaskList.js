@@ -2,7 +2,7 @@ import React from "react";
 import Task from "components/Task/Task";
 import { useTaskState } from "contexts/TaskContext";
 import { useDayState } from "contexts/DayContext";
-import { css } from "emotion";
+import { css } from "@emotion/core";
 
 const TaskList = () => {
     const { tasks } = useTaskState();
@@ -11,7 +11,7 @@ const TaskList = () => {
 
     return filteredTasks ? (
         <ul
-            className={css`
+            css={css`
                 list-style: none;
                 padding: 0;
                 display: flex;

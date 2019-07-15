@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "emotion";
+import { css } from "@emotion/core";
 import { useDayDispatch } from "contexts/DayContext";
 
 const Day = ({ abbr, dayInt, isActive, name }) => {
@@ -11,12 +11,12 @@ const Day = ({ abbr, dayInt, isActive, name }) => {
 
     return (
         <li
-            className={css`
+            css={css`
                 flex-grow: 1;
             `}
         >
             <button
-                className={css`
+                css={css`
                     background: ${isActive ? "#fefefe" : "transparent"};
                     border: 0;
                     cursor: pointer;

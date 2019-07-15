@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTaskDispatch } from "contexts/TaskContext";
 import { useDayState } from "contexts/DayContext";
-import { css } from "emotion";
+import { css } from "@emotion/core";
 
 const taskNewStyle = css`
     display: flex;
@@ -71,9 +71,9 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
     };
 
     return (
-        <form className={taskNewStyle} onSubmit={handleSubmit}>
+        <form css={taskNewStyle} onSubmit={handleSubmit}>
             <input
-                className={css`
+                css={css`
                     display: block;
                     margin-bottom: 0.7em;
                 `}
@@ -82,8 +82,8 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
                 value={task.name}
             />
 
-            <label className={flexLabelStyle}>
-                <span className={inputLabelStyle}>Recurring:</span>
+            <label css={flexLabelStyle}>
+                <span css={inputLabelStyle}>Recurring:</span>
                 <input
                     onChange={handleRecurringChange}
                     type="checkbox"
@@ -91,8 +91,8 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
                 />
             </label>
 
-            <label className={flexLabelStyle}>
-                <span className={inputLabelStyle}>Time Limit:</span>
+            <label css={flexLabelStyle}>
+                <span css={inputLabelStyle}>Time Limit:</span>
                 <input
                     onChange={handleTimeToggle}
                     type="checkbox"
@@ -102,12 +102,12 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
 
             {hasTime ? (
                 <div
-                    className={css`
+                    css={css`
                         margin-bottom: 0.7em;
                     `}
                 >
                     <label
-                        className={css`
+                        css={css`
                             display: flex;
                             flex-basis: 50%;
                         `}
@@ -117,7 +117,7 @@ const TaskEditor = ({ handleCancel, editTask = null }) => {
                     </label>
 
                     <label
-                        className={css`
+                        css={css`
                             display: flex;
                             flex-basis: 50%;
                         `}

@@ -1,4 +1,4 @@
-import { css } from "emotion";
+import { css, jsx } from "@emotion/core";
 
 export const app = css`
     background: lightblue;

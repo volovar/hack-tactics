@@ -7,14 +7,14 @@ import { DayProvider } from "contexts/DayContext";
 const App = () => (
     <TaskProvider>
         <DayProvider>
-            <div className={styles.app}>
-                <header className={styles.appHeader}>
+            <div css={styles.app}>
+                <header css={styles.appHeader}>
                     <h3>Tactics Coder</h3>
                 </header>
-                <div className={styles.appBody}>
+                <div css={styles.appBody}>
                     <DayView />
                 </div>
-                <footer className={styles.appFooter}>&copy; volovar.com</footer>
+                <footer css={styles.appFooter}>&copy; volovar.com</footer>
             </div>
         </DayProvider>
     </TaskProvider>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TaskList from "components/TaskList/TaskList";
 import TaskEditor from "components/TaskEditor/TaskEditor";
-import { css } from "emotion";
+import { css } from "@emotion/core";
 
 const headerStyle = css`
     margin: 0;
@@ -47,7 +47,7 @@ const TaskView = () => {
 
     return (
         <div
-            className={css`
+            css={css`
                 display: flex;
                 flex-direction: column;
                 flex-grow: 1;
@@ -55,11 +55,11 @@ const TaskView = () => {
                 overflow: auto;
             `}
         >
-            <div className={taskHeaderStyle}>
-                <h3 className={headerStyle}>Tasks</h3>
+            <div css={taskHeaderStyle}>
+                <h3 css={headerStyle}>Tasks</h3>
                 <button
                     onClick={handleClick}
-                    className={buttonStyle}
+                    css={buttonStyle}
                     disabled={addNew}
                 >
                     Add +
