@@ -7,7 +7,7 @@ module.exports = (env = {}) => {
         new HtmlWebpackPlugin({
             meta: {
                 charset: "utf-8",
-                viewport: "width=device-width, initial-scale=1"
+                viewport: "width=device-width, initial-scale=1, maximum-scale=1"
             },
             template: resolve(__dirname, "src/index.html"),
             title: "React Starter"

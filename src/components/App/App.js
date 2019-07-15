@@ -11,9 +11,7 @@ const App = () => (
                 <header css={styles.appHeader}>
                     <h3>Tactics Coder</h3>
                 </header>
-                <div css={styles.appBody}>
-                    <DayView />
-                </div>
+                <DayView />
                 <footer css={styles.appFooter}>&copy; volovar.com</footer>
             </div>
         </DayProvider>

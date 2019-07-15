@@ -15,6 +15,7 @@ export const appHeader = css`
 
 export const appBody = css`
     flex-grow: 1;
+    height: 100%;
     overflow: auto;
 `;
 
