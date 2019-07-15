@@ -6,7 +6,7 @@ const Day = ({ abbr, dayInt, isActive, name }) => {
     const dispatch = useDayDispatch();
 
     const handleClick = () => {
-        dispatch({ type: "set", day: dayInt });
+        dispatch({ type: "set", dayInt });
     };
 
     return (
