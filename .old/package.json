@@ -1,0 +1,32 @@
+{
+    "name": "tactics-coder",
+    "version": "0.1.0",
+    "description": "An app to plan your tasks",
+    "main": "src/index.js",
+    "dependencies": {
+        "@babel/core": "^7.5.4",
+        "@babel/plugin-proposal-class-properties": "^7.5.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
+        "@babel/plugin-transform-react-jsx": "^7.3.0",
+        "@babel/preset-env": "^7.5.4",
+        "@emotion/babel-preset-css-prop": "^10.0.14",
+        "@emotion/core": "^10.0.14",
+        "babel-loader": "^8.0.6",
+        "html-webpack-plugin": "^3.2.0",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.7.2"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "build": "webpack",
+        "dist": "webpack --env.production",
+        "start": "webpack-dev-server",
+        "start-prod": ""
+    },
+    "author": "Mike Volovar",
+    "license": "ISC"
+}
