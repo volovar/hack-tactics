@@ -5,7 +5,8 @@ export default defineNuxtConfig({
       charset: "utf-8",
       meta: [{ name: "description", content: "" }],
       title: "Tactics Coder",
-      viewport: "width=device-width, initial-scale=1",
-    },
+      viewport: "width=device-width, initial-scale=1"
+    }
   },
+  css: ["~/assets/css/main.css"]
 });
