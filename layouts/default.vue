@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-const year = 2023;
+const year = new Date().getFullYear();
 </script>
 
 <style lang="postcss">
@@ -20,7 +20,7 @@ const year = 2023;
 
 .header {
   display: flex;
-  padding: 0 1em;
+  padding: 0 1rem;
 }
 
 .body {
@@ -29,6 +29,6 @@ const year = 2023;
 }
 
 .footer {
-  padding: 0 1em;
+  padding: 0 1rem;
 }
 </style>
